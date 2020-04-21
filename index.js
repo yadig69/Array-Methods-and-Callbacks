@@ -13,32 +13,32 @@ console.log(fifaData);
 
 
 // (a)
-const hometeamname2014 = [];
-let a = fifaData.forEach(function(item) {
-    if (item["year"] === 2014) {
-        hometeamname2014.push(item["Home Team Name"]);
+const hometeamName2014 = [];
+fifaData.forEach(function(item) {
+    if (item["Year"] === 2014) {
+        hometeamName2014.push(item["Home Team Name"]);
     }
-    return hometeamname2014;
-})
-console.log(hometeamname2014);
+    return hometeamName2014;
+});
+console.log(hometeamName2014);
 
 
 // (b)
 
 const awayteamname2014 = [];
-let b = fifaData.forEach(function(iteam) {
-    if (iteam["year"] === 2014) {
-        awayteamname2014.push(iteam["Away Team Name"]);
+fifaData.forEach(function(item) {
+    if (item["Year"] === 2014) {
+        awayteamname2014.push(item["Away Team Name"]);
     }
-    return awayteam2014;
-})
-console.log(awayteam2014);
+    return awayteamname2014;
+});
+console.log(awayteamname2014);
 
 // (c)
 const homeTeamGoals2014 = [];
-fifaData.forEach(function(iteam) {
-    if (iteam["yes"] === 2014) {
-        homeTeamGoals2014.push(iteam["Home Team Goals"]);
+fifaData.forEach(function(item) {
+    if (item["Year"] === 2014) {
+        homeTeamGoals2014.push(item["Home Team Goals"]);
     }
     return homeTeamGoals2014;
 });
@@ -47,14 +47,28 @@ console.log(homeTeamGoals2014);
 
 
 // (d)
+const awayTeamGoals2014 = [];
+fifaData.forEach(function(item) {
+    if (item["Year"] === 2014) {
+        awayTeamGoals2014.push(item["Away Team Goals"]);
+    }
+    return awayTeamGoals2014;
+});
 
+console.log(awayTeamGoals2014);
+
+// (e)
+
+if (homeTeamGoals2014 > awayTeamGoals2014) {
+    console.log(hometeamName2014[0]);
+}
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
 function getFinals(fifaData) {
 
-    console finalData = fifaData.filter(function(item) {
+    const finalData = fifaData.filter(function(item) {
         finalData = item["stage"] === "Final";
     });
     /* code here */
@@ -65,13 +79,17 @@ getFinals(fifaData);
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears( /* code here */ ) {
-
+function getYears(getFinals) {
+    //getFinals is callback we want to look through
+    //return all of the years in the fifadata set
     /* code here */
-
-};
-
-getYears();
+    return getFinals(fifaData).map(function(data) {
+        return data["Year"];
+    });
+}
+console.log(getYears(getFinals));
+getYears(getFinals);
+getYears(years);
 
 /* Task 5: Impliment a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */
 
