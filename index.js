@@ -14,9 +14,9 @@ console.log(fifaData);
 
 // (a)
 const hometeamname2014 = [];
-let a = fifaData.forEach(function(iteam) {
-    if (iteam["year"] === 2014) {
-        hometeamname2014.push(iteam["Home Team Name"]);
+let a = fifaData.forEach(function(item) {
+    if (item["year"] === 2014) {
+        hometeamname2014.push(item["Home Team Name"]);
     }
     return hometeamname2014;
 })
@@ -25,16 +25,16 @@ console.log(hometeamname2014);
 
 // (b)
 
-const awayteamname14 = [];
+const awayteamname2014 = [];
 let b = fifaData.forEach(function(iteam) {
     if (iteam["year"] === 2014) {
-        awayteamname14.push(iteam["Home Team Name"]);
+        awayteamname2014.push(iteam["Away Team Name"]);
     }
-    return awayteamname14;
+    return awayteam2014;
 })
-console.log(awayteamname14);
+console.log(awayteam2014);
 
-
+// (c)
 const homeTeamGoals2014 = [];
 fifaData.forEach(function(iteam) {
     if (iteam["yes"] === 2014) {
@@ -45,13 +45,23 @@ fifaData.forEach(function(iteam) {
 
 console.log(homeTeamGoals2014);
 
+
+// (d)
+
+
+
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(data) {
-    return
-    /* code here */
+function getFinals(fifaData) {
 
-};
+    console finalData = fifaData.filter(function(item) {
+        finalData = item["stage"] === "Final";
+    });
+    /* code here */
+    console.log(finalData);
+}
+
+getFinals(fifaData);
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
